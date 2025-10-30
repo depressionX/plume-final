@@ -1,0 +1,531 @@
+/* ---- CÀI ĐẶT FONT CHỮ & NỀN (Từ file index.css) ---- */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f7f7f7; 
+  color: #111;
+}
+
+/* ---- BỐ CỤC CHÍNH (Sidebar + Main) ---- */
+.app-container {
+  display: flex;
+}
+
+/* ---- 1. THANH BÊN TRÁI (SIDEBAR) ---- */
+.sidebar {
+  width: 240px; 
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #ffffff;
+  border-right: 1px solid #e5e5e5;
+  padding: 24px 16px; 
+  box-sizing: border-box; 
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Cụm Logo và Nút Connect --- */
+.sidebar-header {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 0 8px 16px 8px; 
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+}
+.sidebar-logo img { 
+  /* Sửa: CSS cho logo mới (logo-sidebar.png) */
+  height: 22px; /* Giữ logo cao 24px */
+  width: auto;  /* Chiều rộng tự động */
+  max-width: 100px; /* Giới hạn chiều rộng (đã sửa) */
+  object-fit: contain;
+}
+
+.sidebar-header .connect-button {
+  background-color: #111;
+  color: #fff;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.sidebar-header .connect-button:hover { background-color: #333; }
+
+/* --- Menu --- */
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1; 
+}
+.sidebar-menu li a {
+  display: flex; 
+  align-items: center; 
+  gap: 12px; 
+  padding: 12px 16px;
+  text-decoration: none;
+  color: #888;
+  font-weight: 600;
+  border-radius: 8px;
+  opacity: 0.7;
+  transition: all 0.2s;
+}
+.sidebar-menu li a:hover {
+  background-color: #f7f7f7; 
+  color: #111;
+  opacity: 1.0;
+}
+.sidebar-menu li a.active {
+  background-color: #f0f0f0; /* Màu nền xám nhạt (thay cho màu xanh) */
+  color: #111; /* Chữ đen */
+  opacity: 1.0;
+}
+
+.sidebar-menu li a svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* --- Mục "More" --- */
+/* THÊM MỚI: Căn bằng link "More" */
+.sidebar-more {
+  margin-top: 16px; 
+  padding-top: 16px; 
+  border-top: 1px solid #e5e5e5; /* Đường kẻ ngang */
+}
+
+.sidebar-more a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: #555;
+  font-weight: 600;
+  border-radius: 8px;
+}
+.sidebar-more a:hover {
+  background-color: #f7f7f7;
+  color: #111;
+}
+.sidebar-more a svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ---- 2. PHẦN CHÍNH (BÊN PHẢI) ---- */
+.main-world {
+  flex-grow: 1; 
+  margin-left: 240px; 
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- 2a. Header (Thanh trên cùng) --- */
+.main-header {
+  padding: 16px 32px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  height: 41px; 
+  box-sizing: border-box;
+}
+
+/* Nút "Đăng nhập Google" (Nút cũ, vẫn giữ) */
+.connect-button {
+  background-color: #111;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* --- 2b. Content (Nội dung chính) --- */
+.main-content {
+  padding: 32px;
+}
+
+/* ================================== */
+/* === CSS MỚI CHO BANNER (SỬA) === */
+/* ================================== */
+
+.hero-banner {
+  position: relative; /* Quan trọng: để làm gốc cho các lớp con */
+  border-radius: 16px; /* Bo góc (yêu cầu 3) */
+  overflow: hidden; /* Phải có để bo góc hoạt động */
+  min-height: 250px; /* Chiều cao tối thiểu (cho banner to ra) */
+  display: flex;
+  align-items: center; /* Căn giữa chữ theo chiều dọc */
+}
+
+.hero-image {
+  position: absolute; /* Lớp 1 (Nằm dưới cùng) */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Căng ảnh ra để lấp đầy */
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute; /* Lớp 2 (Nằm giữa) */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Lớp phủ đen mờ 30% (để chữ dễ đọc) */
+  z-index: 2;
+}
+
+.hero-text {
+  position: relative; /* Lớp 3 (Nằm trên cùng) */
+  z-index: 3;
+  padding: 40px;
+  color: #ffffff; /* Chữ MÀU TRẮNG */
+}
+
+.hero-text h1 {
+  font-size: 2.5rem; 
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+  color: #ffffff; /* Chữ MÀU TRẮNG */
+}
+.hero-text p {
+  font-size: 1.1rem;
+  color: #f0f0f0; /* Màu trắng xám */
+  margin-bottom: 24px;
+}
+
+.connect-button.large {
+  padding: 12px 24px;
+  font-size: 1rem;
+  background-color: #fff; /* Nút trong banner MÀU TRẮNG */
+  color: #111; /* Chữ MÀU ĐEN */
+}
+.connect-button.large:hover {
+  background-color: #eee;
+}
+
+/* Hộp hiển thị ví (giữ nguyên) */
+.claim-box {
+  margin-top: 32px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e5e5e5;
+  padding: 40px;
+  text-align: center;
+}
+.claim-box h2 { font-size: 1.8rem; }
+.claim-box p { color: #666; }
+.wallet-address {
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 15px;
+  font-size: 1.1rem;
+  font-family: 'Courier New', Courier, monospace;
+  word-wrap: break-word;
+  margin-top: 20px;
+}
+/* ================================== */
+/* === CSS MỚI CHO TASK LIST (THÊM VÀO) === */
+/* ================================== */
+
+.task-list {
+  margin-top: 32px; /* Khoảng cách với banner */
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  padding: 16px 20px;
+  border-radius: 12px;
+  margin-bottom: 12px; /* Khoảng cách giữa các nhiệm vụ */
+}
+
+.task-info {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* Khoảng cách giữa icon và chữ */
+}
+
+.task-icon {
+  font-size: 1.5rem; /* Cỡ chữ icon */
+}
+
+.task-text {
+  font-weight: 600;
+  color: #111;
+}
+
+.task-button {
+  border: none;
+  padding: 8px 18px;
+  border-radius: 9999px; /* Bo góc "viên thuốc" */
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+/* Nút "Swap" (Hoạt động) */
+.task-button.active {
+  background-color: #111;
+  color: #fff;
+}
+.task-button.active:hover {
+  background-color: #333;
+}
+
+/* Nút "Follow" (Bị mờ) */
+.task-button.disabled {
+  background-color: #f0f0f0; /* Màu nền xám nhạt */
+  color: #aaa; /* Màu chữ xám nhạt */
+  cursor: not-allowed; /* Con trỏ "cấm" */
+}
+
+/* ================================== */
+/* === CSS MỚI CHO MODAL (THÊM VÀO) === */
+/* ================================== */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Lớp phủ mờ */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.modal-title {
+  font-size: 1.25rem; /* 20px */
+  font-weight: 700;
+  color: #111;
+}
+
+.modal-close-button {
+  background: none;
+  border: none;
+  font-size: 1.75rem; /* 28px */
+  font-weight: 300;
+  color: #888;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.modal-content p {
+  color: #555;
+  font-size: 0.9rem;
+  margin: 16px 0;
+}
+
+/* Hộp địa chỉ ví (Tái sử dụng từ .wallet-address) */
+.wallet-box {
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 12px 15px;
+  font-size: 1rem;
+  font-family: 'Courier New', Courier, monospace;
+  word-wrap: break-word;
+  color: #333;
+}
+
+/* Thanh tiến độ */
+.progress-bar-container {
+  width: 100%;
+  height: 12px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  overflow: hidden; /* Bo góc cả thanh fill bên trong */
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: #00a884; /* Màu xanh lá của Plume */
+  border-radius: 8px;
+  transition: width 0.5s ease;
+}
+/* ================================== */
+/* === CSS MỚI CHO DÒNG CHỮ (THÊM VÀO) === */
+/* ================================== */
+.hero-sub-text-light {
+  font-size: 0.95rem; /* Cỡ chữ nhỏ hơn 1 chút */
+  color: #d1d1d1; /* Màu trắng xám nhạt hơn */
+  margin-top: -12px; /* Kéo nó lại gần dòng trên */
+  margin-bottom: 24px;
+}
+/* ================================== */
+/* === CSS MỚI CHO FOOTER (THÊM VÀO) === */
+/* ================================== */
+
+.footer {
+  background-color: #ffffff; /* Nền trắng */
+  border-top: 1px solid #e5e5e5; /* Đường kẻ mờ ở trên */
+  padding: 40px 32px; /* Padding (đệm) */
+  margin-top: 32px; /* Khoảng cách với task-list */
+}
+
+.footer-links {
+  display: flex;
+  gap: 80px; /* Khoảng cách giữa các cột */
+  margin-bottom: 32px;
+  flex-wrap: wrap; /* Tự xuống hàng trên di động */
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Khoảng cách giữa các link trong 1 cột */
+  min-width: 150px; /* Chiều rộng tối thiểu cho mỗi cột */
+}
+
+.footer-column h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #888; /* Màu xám */
+  margin: 0;
+  text-transform: uppercase; /* Viết hoa */
+}
+
+.footer-column a {
+  text-decoration: none;
+  color: #111;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.footer-column a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  border-top: 1px solid #e5e5e5; /* Đường kẻ ngang ở giữa */
+  flex-wrap: wrap; /* Tự xuống hàng trên di động */
+  gap: 20px;
+}
+
+.footer-logo img {
+  height: 20px; /* Logo nhỏ hơn ở footer */
+  width: auto;
+  max-width: 100px;
+  object-fit: contain;
+}
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Khoảng cách giữa các icon social */
+}
+
+.footer-socials a {
+  color: #555; /* Màu icon */
+}
+.footer-socials a:hover {
+  color: #111; /* Đổi màu khi di chuột */
+}
+
+.footer-socials a svg {
+  width: 20px;
+  height: 20px;
+}
+/* ================================== */
+/* === CSS MỚI CHO MÀN HÌNH KHÓA (THÊM VÀO) === */
+/* ================================== */
+
+.invite-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  /* Đây là "tấm màn đen mờ" bạn muốn */
+  background-color: rgba(0, 0, 0, 0.7); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.invite-modal {
+  background-color: #ffffff;
+  padding: 32px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.invite-modal h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: #111;
+}
+
+.invite-modal p {
+  color: #555;
+  font-size: 1rem;
+  margin-bottom: 24px;
+}
+
+.invite-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box; /* Quan trọng */
+  margin-top: 16px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.invite-modal .connect-button.large {
+  margin-top: 16px;
+  width: 100%;
+}
+
+.invite-error {
+  color: #D93025; /* Màu đỏ báo lỗi */
+  font-size: 0.9rem;
+  margin-top: 12px;
+  margin-bottom: 0;
+}
