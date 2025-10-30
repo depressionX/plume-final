@@ -17,16 +17,16 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18' # Dùng Node.js 18
+          node-version: '18' 
       - name: Install dependencies
         run: npm install
       - name: Build
-        # Chạy 'npm run build', nó sẽ tự động dùng file vite.config.js (với base: "/")
         run: npm run build 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        # SỬA LỖI: Nâng cấp từ v2 lên v3
+        uses: actions/upload-pages-artifact@v3 
         with:
-          path: ./dist # Thư mục 'dist' là nơi chứa web đã build
+          path: ./dist 
 
   deploy:
     needs: build
@@ -37,4 +37,5 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        # SỬA LỖI: Nâng cấp từ v2 lên v4
+        uses: actions/deploy-pages@v4
